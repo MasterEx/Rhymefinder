@@ -1,0 +1,4 @@
+A very simple php page that uses a simple bash script to find rhymes for given suffixes in greek and english.
+The script (rhymefind) has 3 switches (-e for english rhymes, -g for greek and -h for usage). 
+e.g. rhymefind -e "mo co" -g "το πο" 
+

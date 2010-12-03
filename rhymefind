@@ -1,0 +1,46 @@
+#!/bin/sh
+
+usage() {
+cat<<EOF
+Usage for Rhyme Finder: rhymefind [option] word(s)
+
+This script is used to easily find words rhyming with a given suffix.
+
+OPTIONS:
+  -g get greek rhymes  (e.g. -g "ας ος")
+  -e get english rhymes (e.g. -e oo)
+  -h help
+  
+EOF
+}
+
+getGreekRhymes(){
+	for suffix in $@; do
+		grep $suffix$ dictionaries/el_GR.dic
+		echo "-------"
+	done;
+}
+getEnglishRhymes(){
+	for suffix in $@; do
+		grep $suffix$ dictionaries/en_US.dic
+		echo "-------"
+	done;
+}
+
+if [[ $# -eq 0 ]];then
+   usage
+   exit
+fi
+
+
+while getopts "g:e: h" o; do
+        case $o in
+				h ) usage ;;
+                                g ) getGreekRhymes $OPTARG;;
+				e ) getEnglishRhymes $OPTARG;;
+				?) usage ;;    
+        esac
+done
+
+
+exit 0
