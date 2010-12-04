@@ -1,4 +1,4 @@
-<?php sleep(2)
+<?php
 /**
 * Copyright 2010-2011, Paulos Sarbinowski <onexemailx@gmail.com>
 *
@@ -8,7 +8,14 @@
 * @copyright Copyright 2010-2011, Paulos Sarbinowski <onexemailx@gmail.com>
 * @license GPLv3 License (http://www.opensource.org/licenses/gpl-3.0.html)
 */
-?><html>
+
+include("rhymefind.php");
+
+$finder = new Finder();
+
+?>
+
+<html>
  <head>
    <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-7">
    <META AUTHOR="cypha">
@@ -32,11 +39,13 @@
 					if($word!="" && filter_has_var(INPUT_POST, "languageChoice")){
 						$lang = filter_input(INPUT_POST, "languageChoice", FILTER_SANITIZE_SPECIAL_CHARS, FILTER_FLAG_STRIP_LOW);
 						if($lang=="GR"){
-							exec("./rhymefind -g \""  . $word . "\" > rhyme_data");
-							echo getRhymes();
+							$rhymes = $finder->getRhymes("dictionaries/el_GR.dic",$word);
+							foreach ($rhymes as $rhyme)
+								echo $rhyme." ";
 						}elseif($lang=="EN"){
-							exec("./rhymefind -e \""  . $word . "\" > rhyme_data");
-							echo getRhymes();
+							$rhymes = $finder->getRhymes("dictionaries/en_US.dic",$word);
+							foreach ($rhymes as $rhyme)
+								echo $rhyme." ";
 						}
 					}
 				}
@@ -45,18 +54,5 @@
 <textarea name="lirycs" rows="15" cols="100" maxlength="700"><?php  
 echo stripslashes($_REQUEST["lirycs"]);
 ?></textarea></form>
-<?php  
-  function getRhymes(){
-	$file=fopen("rhyme_data","r") or exit("Internal error!");
-    if ($file) { 
-       $theData = fread($file, filesize("rhyme_data")); 
-	   fclose($file);
-       return str_replace("-------", "\n-------\n", str_replace("\n"," ",$theData));
-    } else {
-       return "Could not retrieve new file from cache.<br>"; 
-	}
-  }
-
-?>
  </body>
 </html>
