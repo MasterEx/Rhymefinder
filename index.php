@@ -1,4 +1,4 @@
-<?php sleep(2)
+<?php sleep(2);
 /**
 * Copyright 2010-2011, Paulos Sarbinowski <onexemailx@gmail.com>
 *
@@ -10,7 +10,7 @@
 */
 ?><html>
  <head>
-   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-7">
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
    <META AUTHOR="cypha">
    <meta name="description" content="Rhyme finder page."/> 
    <meta name="keywords" content="cypher, rhyme, greek, english, find, page"/> 
@@ -41,10 +41,10 @@
 					}
 				}
 ?></textarea></br>
-<label for="lirycs"><h2 class="first">Current lirycs:</h2></label>
+<label for="lirycs"><h2 class="first">Current lyrics:</h2></label>
 <textarea name="lirycs" rows="15" cols="100" maxlength="700"><?php  
 echo stripslashes($_REQUEST["lirycs"]);
-?></textarea></form>
+?></textarea></form></br>
 <?php  
   function getRhymes(){
 	$file=fopen("rhyme_data","r") or exit("Internal error!");
