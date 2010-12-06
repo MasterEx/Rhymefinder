@@ -17,7 +17,7 @@ $finder = new Finder();
 
 <html>
  <head>
-   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-7">
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
    <META AUTHOR="cypha">
    <meta name="description" content="Rhyme finder page."/> 
    <meta name="keywords" content="cypher, rhyme, greek, english, find, page"/> 
