@@ -21,6 +21,7 @@ $finder = new Finder();
    <META AUTHOR="cypha">
    <meta name="description" content="Rhyme finder page."/> 
    <meta name="keywords" content="cypher, rhyme, greek, english, find, page"/> 
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"> 
    <link rel="stylesheet" href="style.css" type="text/css" media="screen,projection" />
   <title>Rhyme finder</title>
  </head>

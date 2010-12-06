@@ -27,7 +27,9 @@
 	 }
 	 
 	 function findRhymes($suffix,$words_array) {
-		 return preg_grep("/.$suffix\b/i",$words_array);
+		 // weird utf 8 and regex boundary (\b) thing in PHP
+		 // http://stackoverflow.com/questions/2432868/php-regex-word-boundary-matching-in-utf-8
+		 return preg_grep("/$suffix(?!\pL)/i",$words_array);
 	 }
 	 
  }
