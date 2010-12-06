@@ -40,11 +40,11 @@ $finder = new Finder();
 					if($word!="" && filter_has_var(INPUT_POST, "languageChoice")){
 						$lang = filter_input(INPUT_POST, "languageChoice", FILTER_SANITIZE_SPECIAL_CHARS, FILTER_FLAG_STRIP_LOW);
 						if($lang=="GR"){
-							$rhymes = $finder->getRhymes("dictionaries/el_GR.dic",$word);
+							$rhymes = $finder->rhymesGreek($word);
 							foreach ($rhymes as $rhyme)
 								echo $rhyme." ";
 						}elseif($lang=="EN"){
-							$rhymes = $finder->getRhymes("dictionaries/en_US.dic",$word);
+							$rhymes = $finder->rhymesEnglish($word);
 							foreach ($rhymes as $rhyme)
 								echo $rhyme." ";
 						}

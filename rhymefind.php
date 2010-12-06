@@ -15,13 +15,19 @@
  class Finder {
 	 
 	 private $rhymefinder;
+	 private $greekDic = "dictionaries/el_GR.dic";
+	 private $engDic = "dictionaries/en_US.dic";
 	 
 	 function __construct() {
 		 $this->rhymefinder = new RhymeFinder();
 	 }
 	 
-	 function getRhymes($filename,$suffix) {
-		 return $this->rhymefinder->findRhymes($suffix,$this->rhymefinder->createArray($filename,false));
+	 function rhymesGreek($suffix) {
+		 return $this->rhymefinder->getRhymes($this->greekDic,$suffix);
+	 }
+	 
+	 function rhymesEnglish($suffix) {
+		 return $this->rhymefinder->getRhymes($this->engDic,$suffix);
 	 }
 	 
  }

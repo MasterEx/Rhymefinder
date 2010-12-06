@@ -32,6 +32,10 @@
 		 return preg_grep("/$suffix(?!\pL)/i",$words_array);
 	 }
 	 
+	 function getRhymes($filename,$suffix) {
+		 return $this->findRhymes($suffix,$this->createArray($filename,false));
+	 }
+	 
  }
 
 ?>
