@@ -15,7 +15,7 @@
 	 function createArray($filename,$debug) {
 		 $fh = @fopen($filename,'r');
 		 if ($fh) {
-			while (($buffer = fgets($fh, 4096)) !== false) {
+			while (($buffer = fgets($fh, 4096)) != false) {
 				$words_array[] = trim($buffer);
 			}
 			if (!feof($handle) && $debug) {
